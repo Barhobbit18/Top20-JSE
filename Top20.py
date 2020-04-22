@@ -18,7 +18,7 @@ for t in tr[0]:
 for j in range(1,len(tr)):
     T=tr[j]
 
-    if len(T)!=6:    #if you want to check how must it is [len(T) for T in tr_elements[:10]] 
+    if len(T)!=6:    #if you want to check how must it is [len(T) for T in tr_elements[:10]]
         break
     i=0
 
@@ -36,7 +36,9 @@ for j in range(1,len(tr)):
 
 Dict={title:column for (title,column) in frame}
 df=pd.DataFrame(Dict)
+df = df.replace(r'\n','', regex=True)
+df.columns=df.columns.str.replace('\n','')
 
-print(df)
+#print(df)
 #df[0]=data
 df.to_csv('Top20.csv')
