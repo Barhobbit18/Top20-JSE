@@ -32,6 +32,7 @@ Dict={title:column for (title,column) in frame}
 df=pd.DataFrame(Dict)
 df = df.replace(r'\n','', regex=True)
 df.columns=df.columns.str.replace('\n','')
+df=df.drop(['BUY NOW'], axis=1)
 
 #print(df)
 df.to_csv('Top20.csv')
